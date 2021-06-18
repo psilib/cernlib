@@ -543,24 +543,6 @@ char *str0dup( const char *str )
 
 
 /*
- * like strdup() but string is n characters long and not terminated
- */
-char *strndup( const char *str,
-              size_t len )
-{
-  size_t bytes = len + 1;
-  char *p;
-
-  if( bytes < ALLOC_MIN_BYTES )
-    bytes = ALLOC_MIN_BYTES;
-
-  p = strncpy( malloc( bytes ), str, len );
-  p[len] = '\0';
-  return p;
-}
-
-
-/*
  * strdup() of character representation of integer n
  */
 char *stridup( int n )

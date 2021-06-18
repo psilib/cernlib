@@ -110,7 +110,7 @@ XCOMM site:  $XConsortium: site.sample,v 1.9 94/04/08 17:02:06 rws Exp $
 /* gmake does like ConstructMFLAGS to be YES(?) */
 #undef MakeCmd
 #ifndef WIN32
-# define MakeCmd gmake
+# define MakeCmd make
 #else
 # define MakeCmd make
 #endif

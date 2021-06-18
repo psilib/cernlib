@@ -1404,7 +1404,7 @@ void interactive_find( char *expr, int keym )
          printf ("See also:\n    ");
          for (i = 0; i < nval; i++) {
              if (i == ncmd) continue;
-             printf (flis_name[i]);
+             printf ("%s", flis_name[i]);
              if (i < nval-1)
                 printf (", ");
              else

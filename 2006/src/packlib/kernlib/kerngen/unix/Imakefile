@@ -8,7 +8,7 @@ LIBDIRS=hpxgs
 LIBDIRS=sungs
 #else
 #if defined(CERNLIB_LNX) && !defined(CERNLIB_GFORTRAN)
-LIBDIRS=lnxgs
+LIBDIRS=lnxgs gfortgs
 #else
 #if defined(CERNLIB_IRTD)
 LIBDIRS=irtdgs

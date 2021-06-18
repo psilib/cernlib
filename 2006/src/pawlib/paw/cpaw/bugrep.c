@@ -432,51 +432,7 @@ br_add_config( char * tmp_file )
 
 static int
 br_mail_file( char *addr, char *subj, char *file )
-#if (defined(CERNLIB_UNIX))&&(!defined(CERNLIB_WINNT))&&(!defined(CERNLIB_MACOSX))
-{
-        FILE            *mfp, *fp;
-        char            line[1024], my_addr[L_cuserid];
-        time_t          clock;
-        struct tm       *ts;
-
-        fp = fopen( file, "r" );
-        if ( fp == NULL ) {
-                printf( "BUGREPORT: cannot (re)open temporary file\n" );
-                return MAIL_ERROR;
-        }
-
-        cuserid( my_addr );
-
-        sprintf( line, "/usr/lib/sendmail -t" );
-        mfp = popen( line, "w" );
-
-        if ( mfp == NULL ) {
-                printf( "BUGREPORT: cannot run sendmail\n" );
-                return MAIL_ERROR;
-        }
-
-
-        clock = time( (time_t *) 0 );
-        ts = localtime( &clock );
-        strftime( line, sizeof( line ),
-                "%a, %d %h %y %H:%M:%S", ts );
-        fprintf ( mfp, "To: %s\n", addr );
-        fprintf ( mfp, "Bcc: %s\n", my_addr );
-        fprintf ( mfp, "Date: %s\n", line );
-        fprintf ( mfp, "Subject: %s\n", subj );
-        fprintf ( mfp, "\n" );
-
-        while( fgets( line, sizeof( line ), fp ) != NULL ) {
-                fputs( line, mfp );
-        }
-        fclose( fp );
-
-        pclose( mfp );
-
-        return MAIL_OK;
-}
-#endif
-#if defined(CERNLIB_MACOSX)
+#if (defined(CERNLIB_UNIX))&&(!defined(CERNLIB_WINNT))
 {
         FILE            *mfp, *fp;
         char            line[1024], *my_addr;

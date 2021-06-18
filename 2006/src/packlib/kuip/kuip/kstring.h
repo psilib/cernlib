@@ -21,7 +21,6 @@ extern "C" {
  */
 
 #ifndef WIN32
-extern void* memmove( void* dst, const void* src, size_t n );
 #endif
 
 /* GF. make conform to kkern.c#if !defined(__convexc__)*/
@@ -46,7 +45,6 @@ extern char* str4dup( const char* str1, const char* str2, const char* str3,
                      const char* str4 );
 extern char* str5dup( const char* str1, const char* str2, const char* str3,
                      const char* str4, const char* str5 );
-extern char* strndup( const char* buf, size_t n );
 extern char* stridup( int i );
 
 extern char* mstrcat( char* ptr, const char* str );
