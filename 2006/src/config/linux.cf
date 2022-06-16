@@ -258,7 +258,7 @@ endif									@@\
 #define FortranCmd		gfortran
 #define XargsCmd		xargs
 #define FortranSaveFlags	/* */ /* Everything static !? */
-#define DefaultFCOptions	-fno-automatic -fno-second-underscore -fPIC
+#define DefaultFCOptions	-std=legacy -fallow-invalid-boz -fno-automatic -fno-second-underscore -fPIC
 #define CernlibSystem	        -DCERNLIB_LINUX -DCERNLIB_UNIX -DCERNLIB_LNX -DCERNLIB_QMGLIBC
 
 # endif
