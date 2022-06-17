@@ -49,7 +49,7 @@
 #define AsmDefines		-D__ELF__
 #define CplusplusCmd		g++ -b i486-linuxelf
 #else
-#define CcCmd			gcc
+#define CcCmd			gcc -fcommon
 #define AsCmd			as
 #define LdCmd			ld
 #define AsmDefines		-DUSE_GAS
