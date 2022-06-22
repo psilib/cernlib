@@ -258,7 +258,11 @@ endif									@@\
 #define FortranCmd		gfortran
 #define XargsCmd		xargs
 #define FortranSaveFlags	-g -O1 -std=legacy
+#if __GNUC__ < 10
+#define DefaultFCOptions	-g -O1 -std=legacy -fno-automatic -fno-second-underscore -fPIC
+#else
 #define DefaultFCOptions	-g -O1 -std=legacy -fallow-invalid-boz -fno-automatic -fno-second-underscore -fPIC
+#endif
 #define CernlibSystem	        -DCERNLIB_LINUX -DCERNLIB_UNIX -DCERNLIB_LNX -DCERNLIB_QMGLIBC
 
 # endif
